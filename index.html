@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schooly — منصة المراقبة الذكية للمدارس</title>
+    <meta name="description" content="Schooly - AI-powered smart school safety and monitoring platform" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      let mainLoaded = false
+      import('/src/main.tsx').then(() => { mainLoaded = true }).catch(err => {
+        // Vite dep optimization can cause transient import failures that resolve
+        // in 1-3s. Retry once before reporting the error to avoid false positives.
+        setTimeout(() => {
+          if (mainLoaded) return
+          import('/src/main.tsx').then(() => { mainLoaded = true }).catch(retryErr => {
+            window.dispatchEvent(new CustomEvent('vite:initial-error', { detail: retryErr }));
+          });
+        }, 2000);
+      })
+    </script>
+    <script src="/analytics.js"></script>
+  </body>
+</html>

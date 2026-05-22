@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>وثيقة إيداع براءة اختراع – منصة Schooly</title>
+  <style>
+    /* ===== FONTS ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap');
+
+    /* ===== CSS RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:    #1a3c6b;
+      --accent:     #0ea5e9;
+      --gold:       #c8a84b;
+      --light-bg:   #f0f5fb;
+      --border:     #c9d8ec;
+      --text:       #1e293b;
+      --muted:      #64748b;
+      --white:      #ffffff;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      background: #e8eef7;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    /* ===== PAGE WRAPPER ===== */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 12mm auto;
+      background: var(--white);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+      padding: 18mm 18mm 16mm 18mm;
+      position: relative;
+      page-break-after: always;
+    }
+
+    /* ===== DECORATIVE BORDER ===== */
+    .page::before {
+      content: '';
+      position: absolute;
+      inset: 6mm;
+      border: 2px solid var(--gold);
+      pointer-events: none;
+    }
+    .page::after {
+      content: '';
+      position: absolute;
+      inset: 8mm;
+      border: 0.5px solid var(--border);
+      pointer-events: none;
+    }
+
+    /* ===== HEADER BAR ===== */
+    .header-bar {
+      background: linear-gradient(135deg, var(--primary) 0%, #2563eb 60%, #0ea5e9 100%);
+      margin: -18mm -18mm 10mm -18mm;
+      padding: 12mm 18mm 8mm 18mm;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .header-bar::before {
+      content: '';
+      position: absolute;
+      top: -30px; left: -30px;
+      width: 180px; height: 180px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .header-bar::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; right: 40px;
+      width: 120px; height: 120px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6mm;
+    }
+
+    .org-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      opacity: 0.85;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 2px 10px;
+      border-radius: 20px;
+    }
+
+    .doc-number {
+      font-size: 0.7rem;
+      opacity: 0.75;
+      text-align: left;
+      direction: ltr;
+    }
+
+    .header-title {
+      text-align: center;
+    }
+    .header-title .ar-title {
+      font-size: 1.9rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 2mm;
+    }
+    .header-title .en-title {
+      font-size: 0.85rem;
+      font-weight: 400;
+      opacity: 0.8;
+      direction: ltr;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .header-title .gold-line {
+      height: 2px;
+      width: 80px;
+      background: var(--gold);
+      margin: 3mm auto;
+      border-radius: 2px;
+    }
+
+    .header-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      opacity: 0.85;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      padding-top: 4mm;
+      margin-top: 4mm;
+    }
+    .header-meta span { display: flex; align-items: center; gap: 5px; }
+
+    /* ===== COVER IDENTITY CARD ===== */
+    .identity-card {
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-right: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 6mm 8mm;
+      margin-bottom: 8mm;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm 8mm;
+    }
+    .id-row { display: flex; flex-direction: column; gap: 1mm; }
+    .id-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .id-value {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* ===== SECTION ===== */
+    .section {
+      margin-bottom: 8mm;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4mm;
+    }
+    .section-num {
+      width: 28px; height: 28px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .section-title h2 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--primary);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 1mm;
+      flex: 1;
+    }
+
+    .section-body {
+      font-size: 0.88rem;
+      color: var(--text);
+      line-height: 1.9;
+      padding-right: 10mm;
+    }
+
+    /* ===== CARDS GRID ===== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+      padding-right: 10mm;
+    }
+    .card {
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 4mm 5mm;
+    }
+    .card-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 2mm;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .card-title .dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .card p, .card li {
+      font-size: 0.78rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .card ul { padding-right: 12px; }
+
+    /* ===== UNITS TABLE ===== */
+    .units-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      margin-top: 3mm;
+    }
+    .units-table th {
+      background: var(--primary);
+      color: var(--white);
+      padding: 3mm 4mm;
+      text-align: right;
+      font-weight: 700;
+    }
+    .units-table td {
+      padding: 2.5mm 4mm;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .units-table tr:nth-child(even) td { background: var(--light-bg); }
+    .unit-num {
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 50%;
+      width: 22px; height: 22px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    /* ===== TECH STACK TABLE ===== */
+    .tech-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .tech-table th {
+      background: var(--primary);
+      color: var(--white);
+      padding: 3mm 5mm;
+      text-align: right;
+      font-weight: 700;
+    }
+    .tech-table td {
+      padding: 3mm 5mm;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .tech-table tr:nth-child(even) td { background: var(--light-bg); }
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      border-radius: 20px;
+      padding: 1px 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin: 1px 2px;
+    }
+
+    /* ===== SCREEN MOCKUP ===== */
+    .screen-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3mm;
+      padding-right: 10mm;
+    }
+    .screen-item {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .screen-bar {
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2mm 3mm;
+      text-align: center;
+    }
+    .screen-body {
+      background: var(--light-bg);
+      padding: 3mm;
+      min-height: 22mm;
+      position: relative;
+    }
+    .screen-row { height: 3mm; background: var(--border); border-radius: 2px; margin-bottom: 2mm; }
+    .screen-row.w60 { width: 60%; }
+    .screen-row.w80 { width: 80%; }
+    .screen-row.w40 { width: 40%; }
+    .screen-row.w100 { width: 100%; }
+    .screen-box {
+      height: 10mm;
+      background: #c3dafe;
+      border-radius: 4px;
+      margin-bottom: 2mm;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .screen-box span { font-size: 0.6rem; color: var(--primary); font-weight: 700; }
+    .screen-caption {
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--muted);
+      padding: 1mm;
+      background: var(--white);
+      font-weight: 600;
+    }
+
+    /* ===== FLOW DIAGRAM ===== */
+    .flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      padding: 3mm 0;
+    }
+    .flow-step {
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 3mm 5mm;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-align: center;
+      min-width: 25mm;
+    }
+    .flow-arrow {
+      color: var(--accent);
+      font-size: 1.2rem;
+      padding: 0 2mm;
+    }
+
+    /* ===== SIGNATURE BLOCK ===== */
+    .sig-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6mm;
+      margin-top: 6mm;
+      padding-top: 4mm;
+      border-top: 1px dashed var(--border);
+    }
+    .sig-col { text-align: center; }
+    .sig-line {
+      height: 0.5px;
+      background: var(--text);
+      margin: 8mm auto 2mm auto;
+      width: 80%;
+    }
+    .sig-label { font-size: 0.72rem; color: var(--muted); font-weight: 600; }
+
+    /* ===== FOOTER ===== */
+    .page-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: 18mm; right: 18mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.65rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 3mm;
+    }
+    .footer-logo {
+      font-weight: 900;
+      color: var(--primary);
+      font-size: 0.82rem;
+    }
+
+    /* ===== HIGHLIGHT BOX ===== */
+    .highlight-box {
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border: 1px solid #bfdbfe;
+      border-right: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 4mm 6mm;
+      margin: 3mm 0 3mm 0;
+      font-size: 0.85rem;
+    }
+    .highlight-box strong { color: var(--primary); }
+
+    /* ===== DANGER/WARNING ===== */
+    .warn-box {
+      background: #fefce8;
+      border: 1px solid #fde68a;
+      border-right: 4px solid #f59e0b;
+      border-radius: 6px;
+      padding: 3mm 5mm;
+      font-size: 0.78rem;
+      margin: 3mm 0;
+    }
+
+    /* ===== LIST STYLES ===== */
+    ul.styled, ol.styled {
+      padding-right: 5mm;
+    }
+    ul.styled li, ol.styled li {
+      margin-bottom: 1.5mm;
+      font-size: 0.85rem;
+      position: relative;
+    }
+    ul.styled li::before {
+      content: '◆';
+      color: var(--accent);
+      font-size: 0.5rem;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body { background: white; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        padding: 15mm 15mm 14mm 15mm;
+        width: 210mm;
+        min-height: 297mm;
+      }
+      .header-bar { margin: -15mm -15mm 10mm -15mm; }
+      @page { size: A4 portrait; margin: 0; }
+    }
+
+    /* ===== PRINT BUTTON ===== */
+    .print-btn {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      z-index: 9999;
+      background: linear-gradient(135deg, var(--primary), #2563eb);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 28px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(26,60,107,0.45);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .print-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(26,60,107,0.55);
+    }
+    .print-btn:active { transform: translateY(0); }
+    @media print { .print-btn { display: none !important; } }
+  </style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">
+  🖨️ طباعة / حفظ PDF
+</button>
+
+<!-- ═══════════════════════════════════════════ PAGE 1 – COVER ═══ -->
+<div class="page">
+  <div class="header-bar">
+    <div class="header-top">
+      <span class="org-label">جمهورية مصر العربية – مكتب براءات الاختراع</span>
+      <span class="doc-number" style="direction:ltr">REF: SCHOOLY-2026 / SW-001</span>
+    </div>
+    <div class="header-title">
+      <div class="ar-title">منصة سكولي – Schooly</div>
+      <div class="gold-line"></div>
+      <div class="en-title">Intelligent School Monitoring & Safety Platform</div>
+    </div>
+    <div class="header-meta">
+      <span>📄 وثيقة إيداع براءة اختراع برمجية</span>
+      <span>📅 تاريخ الإيداع: ٣ مايو ٢٠٢٦</span>
+      <span>🔒 سري – للاستخدام الرسمي فقط</span>
+    </div>
+  </div>
+
+  <!-- Identity Card -->
+  <div class="identity-card">
+    <div class="id-row">
+      <span class="id-label">اسم البرنامج / المنصة</span>
+      <span class="id-value">Schooly – سكولي</span>
+    </div>
+    <div class="id-row">
+      <span class="id-label">تصنيف الاختراع</span>
+      <span class="id-value">برنامج حاسوبي + ذكاء اصطناعي</span>
+    </div>
+    <div class="id-row">
+      <span class="id-label">صاحب الحق / المودِع</span>
+      <span class="id-value">عبدالله إوينا</span>
+    </div>
+    <div class="id-row">
+      <span class="id-label">البريد الإلكتروني</span>
+      <span class="id-value" style="direction:ltr; text-align:right">abdallah.ewina@gmail.com</span>
+    </div>
+    <div class="id-row">
+      <span class="id-label">لغات البرمجة الأساسية</span>
+      <span class="id-value">Python · TypeScript · SQL</span>
+    </div>
+    <div class="id-row">
+      <span class="id-label">إصدار المنصة</span>
+      <span class="id-value">الإصدار الأول – v1.0.0</span>
+    </div>
+    <div class="id-row">
+      <span class="id-label">نظام التشغيل</span>
+      <span class="id-value">Linux / Windows / macOS (Docker)</span>
+    </div>
+    <div class="id-row">
+      <span class="id-label">تاريخ الإنشاء الأول</span>
+      <span class="id-value">٢٠٢٥</span>
+    </div>
+  </div>
+
+  <!-- Section 1 – Description -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">١</div>
+      <h2>وصف الاختراع – طبيعة البرنامج والمشكلة التي يحلها</h2>
+    </div>
+    <div class="section-body">
+      <p>
+        <strong>Schooly</strong> هو نظام ذكي متكامل لمراقبة وتأمين بيئات المدارس في الوقت الفعلي،
+        يجمع بين تقنيات <strong>الذكاء الاصطناعي</strong> ومعالجة الفيديو وتحليل البيانات السلوكية
+        داخل منصة موحدة ومتعددة المستويات مصممة خصيصاً للمؤسسات التعليمية العربية.
+      </p>
+      <br />
+      <div class="highlight-box">
+        <strong>المشكلة:</strong> تفتقر المدارس إلى أنظمة مراقبة ذكية قادرة على الربط الآني بين
+        كاميرات المراقبة وبيانات الحضور وسلوك الطلاب وتنبيه الإدارة فور وقوع حوادث أمنية أو
+        سلوكية، مع ضمان خصوصية البيانات وفق متطلبات حوكمة البيانات العربية.
+      </div>
+      <br />
+      <div class="highlight-box">
+        <strong>الحل:</strong> توفر Schooly منظومة من <strong>15 وحدة ذكاء اصطناعي</strong> تعمل
+        بالتوازي لتحقيق مراقبة شاملة تغطي الدخول والممرات والفصول والملاعب، مع توليد تقارير
+        دورية متعددة المستويات وبوابة أولياء أمور تتيح تتبع الطالب في الوقت الفعلي.
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 – Functions -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">٢</div>
+      <h2>وظائف البرنامج الرئيسية</h2>
+    </div>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-title"><span class="dot"></span>المراقبة الآنية</div>
+        <p>استقبال بث RTSP من كاميرات المراقبة الموزعة، تحليل المشاهد، ورصد الكثافة والحركة في جميع مناطق المدرسة.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot"></span>الحضور الذكي</div>
+        <p>تسجيل حضور الطلاب تلقائياً عبر التعرف على الوجه بدون تدخل بشري، مع دمج بيانات الحضور وأحداث السلامة.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot"></span>الإنذار المبكر</div>
+        <p>كشف السلوكيات الخطرة وإرسال تنبيهات فورية للإدارة مصنفة حسب مستوى الخطورة مع توصيات الاستجابة.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot"></span>التقارير متعددة المستويات</div>
+        <p>توليد تقارير تشغيلية وتحليلية وإشرافية ووزارية بصيغ متنوعة لدعم القرار على جميع المستويات.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot"></span>بوابة أولياء الأمور</div>
+        <p>واجهة آمنة تتيح لأولياء الأمور متابعة موقع الطالب وحضوره وسجل السلامة الخاص به في الوقت الفعلي.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot"></span>الذكاء البيداغوجي</div>
+        <p>تحليل سلوك الطلاب التعليمي وقياس مستوى التفاعل والانتباه داخل الفصل وتقديم توصيات تربوية.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-logo">Schooly</span>
+    <span>وثيقة إيداع براءة اختراع برمجية – سري للاستخدام الرسمي</span>
+    <span>صفحة 1 من 6</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ PAGE 2 – AI UNITS ═══ -->
+<div class="page">
+  <div class="header-bar">
+    <div class="header-top">
+      <span class="org-label">منصة Schooly – الوحدات الذكية</span>
+      <span class="doc-number" style="direction:ltr">REF: SCHOOLY-2026 / SW-001</span>
+    </div>
+    <div class="header-title">
+      <div class="ar-title" style="font-size:1.5rem">المنظومة الذكية – ١٥ وحدة ذكاء اصطناعي</div>
+      <div class="gold-line"></div>
+      <div class="en-title">The 15-Unit AI Architecture</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">٣</div>
+      <h2>وصف الوحدات الذكية الخمس عشرة</h2>
+    </div>
+    <table class="units-table">
+      <thead>
+        <tr>
+          <th style="width:8%">رقم</th>
+          <th style="width:28%">اسم الوحدة</th>
+          <th>الوظيفة والمخرجات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">1</span></td>
+          <td><strong>وحدة التقاط الفيديو</strong><br/><small style="color:var(--muted)">Video Capture Unit</small></td>
+          <td>استقبال ومعالجة بث RTSP من شبكة الكاميرات الموزعة، ضمان استمرارية البث وإدارة التدفق.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">2</span></td>
+          <td><strong>وحدة فهم المشهد</strong><br/><small style="color:var(--muted)">Scene Understanding</small></td>
+          <td>تحليل إطارات الفيديو باستخدام رؤية الحاسوب (OpenCV) للكشف عن الأشخاص والأشياء والأحداث.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">3</span></td>
+          <td><strong>وحدة تتبع المسار</strong><br/><small style="color:var(--muted)">Path Tracking</small></td>
+          <td>تتبع مسار حركة الطلاب والأشخاص عبر مناطق المدرسة المختلفة وبناء خرائط الحركة.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">4</span></td>
+          <td><strong>وحدة كشف المؤشرات الخطرة</strong><br/><small style="color:var(--muted)">Hazard Indicator Detection</small></td>
+          <td>رصد السلوكيات والمواقف الخطرة (العنف، التجمعات المشبوهة، الحوادث) وإطلاق تنبيهات فورية.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">5</span></td>
+          <td><strong>الذاكرة السلوكية المكانية</strong><br/><small style="color:var(--muted)">Spatial Behavioral Memory</small></td>
+          <td>حفظ وتحليل الأنماط السلوكية المرتبطة بمناطق محددة بمرور الوقت لبناء خريطة السلوك المكانية.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">6</span></td>
+          <td><strong>وحدة التماسك الجماعي</strong><br/><small style="color:var(--muted)">Collective Behavioral Coherence</small></td>
+          <td>تحليل ديناميكيات التجمعات والحشود لاكتشاف الاضطرابات الجماعية أو التجمعات غير الطبيعية.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">7</span></td>
+          <td><strong>وحدة الكثافة التنبؤية</strong><br/><small style="color:var(--muted)">Predictive Density Unit</small></td>
+          <td>التنبؤ بكثافة الحشود ونقاط الاختناق في المستقبل القريب لتمكين التدخل الاستباقي.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">8</span></td>
+          <td><strong>وحدة تكامل الحضور والسلامة</strong><br/><small style="color:var(--muted)">Attendance-Safety Integration</small></td>
+          <td>ربط سجلات الحضور المولدة آلياً مع أحداث السلامة للحصول على صورة متكاملة لكل طالب.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">9</span></td>
+          <td><strong>وحدة التنبيه والاستجابة</strong><br/><small style="color:var(--muted)">Alert & Response Unit</small></td>
+          <td>توليد وتوجيه التنبيهات الفورية للجهات المعنية مع توصيات الاستجابة المصنفة حسب الخطورة.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">10</span></td>
+          <td><strong>لوحة المراقبة الذكية</strong><br/><small style="color:var(--muted)">Smart Monitoring Dashboard</small></td>
+          <td>عرض مباشر للتحليلات والحوادث والخرائط الحرارية على واجهة إدارية تفاعلية.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">11</span></td>
+          <td><strong>وحدة التقارير الدورية متعددة المستويات</strong><br/><small style="color:var(--muted)">Multi-Level Periodic Reports</small></td>
+          <td>توليد تلقائي لتقارير الامتثال والأداء على مستويات: تشغيلي، تحليلي، إشرافي، وزاري.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">12</span></td>
+          <td><strong>بوابة الوالدين الذكية</strong><br/><small style="color:var(--muted)">Smart Parent Portal</small></td>
+          <td>واجهة مخصصة لأولياء الأمور لمتابعة الطالب وحضوره وتقارير السلامة في الوقت الفعلي.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">13</span></td>
+          <td><strong>وحدة التقييم الذاتي المؤسسي</strong><br/><small style="color:var(--muted)">Institutional Self-Assessment</small></td>
+          <td>حساب مؤشر سلامة المدرسة (SSI) من 5 مصادر بيانات مستقلة لدعم قرارات التحسين المؤسسي.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">14</span></td>
+          <td><strong>طبقة حوكمة البيانات العربية</strong><br/><small style="color:var(--muted)">Arab Data Governance Layer</small></td>
+          <td>حماية الخصوصية وإخفاء هوية الوجه آلياً، ضمان الامتثال لمتطلبات حوكمة البيانات العربية.</td>
+        </tr>
+        <tr>
+          <td style="text-align:center"><span class="unit-num">15</span></td>
+          <td><strong>عميل الذكاء البيداغوجي</strong><br/><small style="color:var(--muted)">Pedagogical Behavioral Intelligence Agent</small></td>
+          <td>تحليل تفاعل الطلاب التعليمي وقياس الانتباه ومستوى المشاركة داخل الفصل مع تقديم رؤى تربوية.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-logo">Schooly</span>
+    <span>وثيقة إيداع براءة اختراع برمجية – سري للاستخدام الرسمي</span>
+    <span>صفحة 2 من 6</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ PAGE 3 – TECH STACK ═══ -->
+<div class="page">
+  <div class="header-bar">
+    <div class="header-top">
+      <span class="org-label">منصة Schooly – البنية التقنية</span>
+      <span class="doc-number" style="direction:ltr">REF: SCHOOLY-2026 / SW-001</span>
+    </div>
+    <div class="header-title">
+      <div class="ar-title" style="font-size:1.5rem">لغات البرمجة والبنية التقنية</div>
+      <div class="gold-line"></div>
+      <div class="en-title">Programming Languages & Technical Architecture</div>
+    </div>
+  </div>
+
+  <!-- Tech Stack -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">٤</div>
+      <h2>لغات البرمجة والأطر المستخدمة</h2>
+    </div>
+    <div style="padding-right:10mm">
+      <table class="tech-table">
+        <thead>
+          <tr>
+            <th style="width:22%">المكوّن</th>
+            <th style="width:28%">التقنية / اللغة</th>
+            <th>الوظيفة في المنصة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>الواجهة الأمامية</strong><br/><small style="color:var(--muted)">Frontend</small></td>
+            <td>
+              <span class="badge">React 19</span>
+              <span class="badge">TypeScript 5</span>
+              <span class="badge">Vite 6</span>
+            </td>
+            <td>بناء الواجهة التفاعلية الديناميكية مع دعم كامل للعربية RTL وتحديث فوري للبيانات.</td>
+          </tr>
+          <tr>
+            <td><strong>التصميم والمكونات</strong><br/><small style="color:var(--muted)">UI / Styling</small></td>
+            <td>
+              <span class="badge">Tailwind CSS 3</span>
+              <span class="badge">shadcn/ui</span>
+              <span class="badge">Framer Motion</span>
+            </td>
+            <td>نظام تصميم موحد بمكونات جاهزة (40+ مكوّن) مع انتقالات سلسة وتصميم متجاوب.</td>
+          </tr>
+          <tr>
+            <td><strong>إدارة الحالة والبيانات</strong></td>
+            <td>
+              <span class="badge">Zustand</span>
+              <span class="badge">TanStack Query</span>
+            </td>
+            <td>إدارة الحالة العامة للتطبيق وطلبات API مع تخزين مؤقت ومزامنة تلقائية.</td>
+          </tr>
+          <tr>
+            <td><strong>خادم API (Node.js)</strong></td>
+            <td>
+              <span class="badge">Express 5</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">Better Auth</span>
+            </td>
+            <td>خادم API خفيف لمسارات المصادقة وإدارة الجلسات وواجهة قاعدة البيانات.</td>
+          </tr>
+          <tr>
+            <td><strong>خادم الذكاء الاصطناعي (Python)</strong></td>
+            <td>
+              <span class="badge">FastAPI</span>
+              <span class="badge">Python 3.11</span>
+              <span class="badge">Uvicorn</span>
+            </td>
+            <td>خادم API لامتزامن عالي الأداء لتشغيل وحدات الذكاء الاصطناعي الـ15 ومعالجة الفيديو.</td>
+          </tr>
+          <tr>
+            <td><strong>رؤية الحاسوب</strong><br/><small style="color:var(--muted)">Computer Vision</small></td>
+            <td>
+              <span class="badge">OpenCV</span>
+              <span class="badge">NumPy</span>
+              <span class="badge">face-api.js</span>
+            </td>
+            <td>معالجة بث الفيديو، الكشف عن الأشخاص والوجوه، تتبع الحركة وتحليل الكثافة.</td>
+          </tr>
+          <tr>
+            <td><strong>قاعدة البيانات</strong></td>
+            <td>
+              <span class="badge">MySQL 3.22+</span>
+              <span class="badge">Drizzle ORM</span>
+            </td>
+            <td>تخزين بيانات الطلاب والمدارس والحوادث وسجلات الحضور مع استعلامات آمنة من نوع TypeSafe.</td>
+          </tr>
+          <tr>
+            <td><strong>النشر والبنية التحتية</strong></td>
+            <td>
+              <span class="badge">Docker</span>
+              <span class="badge">Docker Compose</span>
+              <span class="badge">Nginx</span>
+            </td>
+            <td>نشر المنصة كحاويات منعزلة قابلة للتوسع مع توجيه الطلبات عبر Nginx كخادم عكسي.</td>
+          </tr>
+          <tr>
+            <td><strong>الاتصال الفوري</strong></td>
+            <td>
+              <span class="badge">WebSocket</span>
+              <span class="badge">MJPEG Stream</span>
+            </td>
+            <td>بث مباشر للكاميرات والتحديثات الآنية للوحة التحكم دون الحاجة لتحديث الصفحة.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Operating Systems -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">٥</div>
+      <h2>نظم التشغيل المدعومة</h2>
+    </div>
+    <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr)">
+      <div class="card">
+        <div class="card-title"><span class="dot"></span>Linux</div>
+        <p>Ubuntu 22.04+ / Debian / CentOS<br/>البيئة الموصى بها للإنتاج</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot"></span>Windows</div>
+        <p>Windows 10/11 Pro (64-bit)<br/>عبر Docker Desktop مع WSL2</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot"></span>macOS</div>
+        <p>macOS 12 Monterey+<br/>عبر Docker Desktop</p>
+      </div>
+    </div>
+    <div class="warn-box" style="margin-top:4mm; margin-right:10mm">
+      <strong>ملاحظة:</strong> تعتمد المنصة على تقنية Docker، مما يجعلها متوافقة مع أي نظام تشغيل يدعم Docker Engine.
+      المتطلبات الدنيا: معالج 4 نوى، ذاكرة RAM 8 جيجا، تخزين 50 جيجا.
+    </div>
+  </div>
+
+  <!-- Architecture Flow -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">٦</div>
+      <h2>تدفق البيانات في المنصة</h2>
+    </div>
+    <div style="padding-right:10mm">
+      <div class="flow">
+        <div class="flow-step">كاميرات RTSP</div>
+        <span class="flow-arrow">←</span>
+        <div class="flow-step">وحدة الالتقاط</div>
+        <span class="flow-arrow">←</span>
+        <div class="flow-step">15 وحدة ذكاء</div>
+        <span class="flow-arrow">←</span>
+        <div class="flow-step">لوحة التحكم</div>
+        <span class="flow-arrow">←</span>
+        <div class="flow-step">التقارير والتنبيهات</div>
+      </div>
+      <div class="flow" style="margin-top:3mm">
+        <div class="flow-step" style="background:var(--accent)">التعرف على الوجه</div>
+        <span class="flow-arrow">←</span>
+        <div class="flow-step" style="background:var(--accent)">تسجيل الحضور</div>
+        <span class="flow-arrow">←</span>
+        <div class="flow-step" style="background:var(--accent)">قاعدة البيانات</div>
+        <span class="flow-arrow">←</span>
+        <div class="flow-step" style="background:var(--accent)">بوابة الأولياء</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-logo">Schooly</span>
+    <span>وثيقة إيداع براءة اختراع برمجية – سري للاستخدام الرسمي</span>
+    <span>صفحة 3 من 6</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ PAGE 4 – SCREENS ═══ -->
+<div class="page">
+  <div class="header-bar">
+    <div class="header-top">
+      <span class="org-label">منصة Schooly – شاشات البرنامج</span>
+      <span class="doc-number" style="direction:ltr">REF: SCHOOLY-2026 / SW-001</span>
+    </div>
+    <div class="header-title">
+      <div class="ar-title" style="font-size:1.5rem">شاشات البرنامج الرئيسية</div>
+      <div class="gold-line"></div>
+      <div class="en-title">Main Program Screens & User Interface</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">٧</div>
+      <h2>وصف الشاشات الرئيسية للبرنامج</h2>
+    </div>
+    <div class="screen-list">
+
+      <!-- Screen 1 -->
+      <div class="screen-item">
+        <div class="screen-bar">لوحة التحكم الرئيسية</div>
+        <div class="screen-body">
+          <div class="screen-row w100"></div>
+          <div class="screen-box"><span>📊 إحصاءات آنية</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2mm">
+            <div class="screen-row w100" style="height:8mm;background:#bfdbfe;border-radius:4px"></div>
+            <div class="screen-row w100" style="height:8mm;background:#bbf7d0;border-radius:4px"></div>
+          </div>
+          <div class="screen-row w60" style="margin-top:2mm"></div>
+        </div>
+        <div class="screen-caption">Dashboard – الإحصاءات والتنبيهات</div>
+      </div>
+
+      <!-- Screen 2 -->
+      <div class="screen-item">
+        <div class="screen-bar">إدارة الطلاب</div>
+        <div class="screen-body">
+          <div class="screen-row w80"></div>
+          <div style="border:1px solid var(--border);border-radius:4px;padding:2mm">
+            <div class="screen-row w100" style="background:var(--primary);height:2mm"></div>
+            <div class="screen-row w100" style="margin:1mm 0"></div>
+            <div class="screen-row w100" style="margin:1mm 0"></div>
+            <div class="screen-row w80" style="margin:1mm 0"></div>
+          </div>
+          <div class="screen-row w40" style="margin-top:2mm;background:var(--accent)"></div>
+        </div>
+        <div class="screen-caption">Students – ملفات وسجلات الطلاب</div>
+      </div>
+
+      <!-- Screen 3 -->
+      <div class="screen-item">
+        <div class="screen-bar">الحضور بالتعرف على الوجه</div>
+        <div class="screen-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2mm;height:18mm">
+            <div style="background:#1a3c6b;border-radius:4px;display:flex;align-items:center;justify-content:center">
+              <span style="color:white;font-size:0.6rem">📷 Live Feed</span>
+            </div>
+            <div>
+              <div class="screen-row w100" style="margin-bottom:1.5mm"></div>
+              <div class="screen-row w100" style="margin-bottom:1.5mm"></div>
+              <div class="screen-row w80" style="margin-bottom:1.5mm"></div>
+              <div class="screen-row w60"></div>
+            </div>
+          </div>
+          <div class="screen-row w100" style="margin-top:2mm;background:#bbf7d0;height:2mm"></div>
+        </div>
+        <div class="screen-caption">Attendance – الحضور الذكي</div>
+      </div>
+
+      <!-- Screen 4 -->
+      <div class="screen-item">
+        <div class="screen-bar">خريطة المراقبة الحرارية</div>
+        <div class="screen-body">
+          <div style="background:linear-gradient(135deg,#1e3a5f,#0ea5e9);border-radius:4px;height:16mm;display:flex;align-items:center;justify-content:center;position:relative">
+            <div style="position:absolute;top:2mm;right:3mm;width:12mm;height:8mm;background:rgba(239,68,68,0.6);border-radius:3px"></div>
+            <div style="position:absolute;bottom:2mm;left:3mm;width:8mm;height:6mm;background:rgba(245,158,11,0.6);border-radius:3px"></div>
+            <span style="color:white;font-size:0.6rem">🗺️ مخطط المدرسة</span>
+          </div>
+          <div class="screen-row w80" style="margin-top:2mm"></div>
+        </div>
+        <div class="screen-caption">Heatmap – خريطة الكثافة الحرارية</div>
+      </div>
+
+      <!-- Screen 5 -->
+      <div class="screen-item">
+        <div class="screen-bar">التقارير متعددة المستويات</div>
+        <div class="screen-body">
+          <div style="display:flex;gap:1mm;margin-bottom:2mm">
+            <div style="background:#dbeafe;border-radius:3px;padding:1mm 2mm;font-size:0.55rem;color:#1e40af;font-weight:700">تشغيلي</div>
+            <div style="background:#dcfce7;border-radius:3px;padding:1mm 2mm;font-size:0.55rem;color:#166534;font-weight:700">تحليلي</div>
+            <div style="background:#fef9c3;border-radius:3px;padding:1mm 2mm;font-size:0.55rem;color:#854d0e;font-weight:700">وزاري</div>
+          </div>
+          <div class="screen-row w100"></div>
+          <div class="screen-row w80" style="margin-top:1.5mm"></div>
+          <div class="screen-row w60" style="margin-top:1.5mm"></div>
+          <div style="background:var(--accent);height:3mm;border-radius:2px;margin-top:2mm;width:40%;"></div>
+        </div>
+        <div class="screen-caption">Reports – التقارير الدورية</div>
+      </div>
+
+      <!-- Screen 6 -->
+      <div class="screen-item">
+        <div class="screen-bar">بوابة أولياء الأمور</div>
+        <div class="screen-body">
+          <div style="display:flex;align-items:center;gap:2mm;margin-bottom:2mm">
+            <div style="width:10mm;height:10mm;background:#c3dafe;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem">👤</div>
+            <div style="flex:1">
+              <div class="screen-row w80" style="margin-bottom:1mm;height:2mm"></div>
+              <div class="screen-row w60" style="height:2mm"></div>
+            </div>
+          </div>
+          <div class="screen-row w100"></div>
+          <div class="screen-row w80" style="margin-top:1.5mm;background:#bbf7d0"></div>
+        </div>
+        <div class="screen-caption">Parent Portal – بوابة الأولياء</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:5mm; padding-right:10mm">
+      <table class="tech-table">
+        <thead>
+          <tr>
+            <th>الشاشة</th>
+            <th>المسار</th>
+            <th>المستخدمون</th>
+            <th>الوظيفة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>تسجيل الدخول</td><td style="direction:ltr">/auth/sign-in</td><td>جميع المستخدمين</td><td>مصادقة آمنة بالبريد أو OAuth</td></tr>
+          <tr><td>لوحة التحكم</td><td style="direction:ltr">/dashboard</td><td>الإدارة</td><td>الإحصاءات الآنية والتنبيهات والخرائط</td></tr>
+          <tr><td>الطلاب</td><td style="direction:ltr">/students</td><td>الإدارة / المعلمون</td><td>إدارة ملفات الطلاب والسجلات</td></tr>
+          <tr><td>الحضور</td><td style="direction:ltr">/attendance</td><td>المعلمون</td><td>تسجيل وتتبع الحضور</td></tr>
+          <tr><td>المراقبة</td><td style="direction:ltr">/monitoring</td><td>المسؤول الأمني</td><td>مخطط الطابق والكثافة الآنية</td></tr>
+          <tr><td>التقارير</td><td style="direction:ltr">/reports</td><td>الإدارة / المفتشون</td><td>تقارير متعددة المستويات</td></tr>
+          <tr><td>بوابة الأولياء</td><td style="direction:ltr">/portal</td><td>أولياء الأمور</td><td>متابعة الطالب في الوقت الفعلي</td></tr>
+          <tr><td>الإعدادات</td><td style="direction:ltr">/settings</td><td>مدير النظام</td><td>إعداد الكاميرات والنظام</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-logo">Schooly</span>
+    <span>وثيقة إيداع براءة اختراع برمجية – سري للاستخدام الرسمي</span>
+    <span>صفحة 4 من 6</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ PAGE 5 – USAGE & DB ═══ -->
+<div class="page">
+  <div class="header-bar">
+    <div class="header-top">
+      <span class="org-label">منصة Schooly – طريقة الاستخدام</span>
+      <span class="doc-number" style="direction:ltr">REF: SCHOOLY-2026 / SW-001</span>
+    </div>
+    <div class="header-title">
+      <div class="ar-title" style="font-size:1.5rem">كيفية الاستخدام والبنية التحتية</div>
+      <div class="gold-line"></div>
+      <div class="en-title">Usage Guide & Database Architecture</div>
+    </div>
+  </div>
+
+  <!-- Usage Guide -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">٨</div>
+      <h2>كيفية استخدام البرنامج – دليل التشغيل</h2>
+    </div>
+    <div style="padding-right:10mm">
+      <div class="cards-grid" style="grid-template-columns: 1fr 1fr; margin-bottom:4mm">
+        <div class="card">
+          <div class="card-title"><span class="dot"></span>١. الإعداد الأولي</div>
+          <ul class="card">
+            <li>تثبيت Docker وDocker Compose</li>
+            <li>نسخ ملف env.example إلى .env وتعبئة المتغيرات</li>
+            <li>تشغيل: <code style="font-size:0.7rem;background:#f1f5f9;padding:1px 4px;border-radius:3px">docker compose up --build</code></li>
+            <li>الوصول عبر المتصفح على المنفذ 80</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title"><span class="dot"></span>٢. إضافة الكاميرات</div>
+          <ul class="card">
+            <li>الدخول لصفحة الإعدادات من القائمة</li>
+            <li>إضافة عنوان RTSP لكل كاميرا</li>
+            <li>تحديد المنطقة المرتبطة (مدخل / فصل / ممر)</li>
+            <li>تشغيل البث والتحقق من الاتصال</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title"><span class="dot"></span>٣. إدارة الطلاب</div>
+          <ul class="card">
+            <li>استيراد بيانات الطلاب من ملف CSV</li>
+            <li>تسجيل صور الوجه لكل طالب للتعرف</li>
+            <li>ربط الطالب بالفصل والصف الدراسي</li>
+            <li>إدخال بيانات ولي الأمر للإشعارات</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title"><span class="dot"></span>٤. تشغيل الوحدات الذكية</div>
+          <ul class="card">
+            <li>الوحدات تعمل تلقائياً عند بدء النظام</li>
+            <li>لوحة التحكم تعرض البيانات الآنية</li>
+            <li>التنبيهات ترسل تلقائياً عند اكتشاف حدث</li>
+            <li>التقارير الدورية تولد تلقائياً</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Database Schema -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">٩</div>
+      <h2>بنية قاعدة البيانات الرئيسية</h2>
+    </div>
+    <div style="padding-right:10mm">
+      <table class="tech-table">
+        <thead>
+          <tr>
+            <th>اسم الجدول</th>
+            <th>الوظيفة</th>
+            <th>البيانات المخزنة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>schools</strong></td>
+            <td>سجل المدارس</td>
+            <td>اسم المدرسة، الرمز، المنطقة الزمنية، اللغة</td>
+          </tr>
+          <tr>
+            <td><strong>students</strong></td>
+            <td>بيانات الطلاب</td>
+            <td>الاسم، الرقم الوطني، الفصل، صورة الوجه، بيانات ولي الأمر</td>
+          </tr>
+          <tr>
+            <td><strong>camera_feeds</strong></td>
+            <td>سجل الكاميرات</td>
+            <td>عنوان RTSP، المنطقة المرتبطة، حالة البث</td>
+          </tr>
+          <tr>
+            <td><strong>daily_attendance</strong></td>
+            <td>سجل الحضور اليومي</td>
+            <td>الطالب، التاريخ، وقت الدخول والخروج، طريقة التسجيل</td>
+          </tr>
+          <tr>
+            <td><strong>safety_incidents</strong></td>
+            <td>سجل الحوادث الأمنية</td>
+            <td>نوع الحادثة، المنطقة، الخطورة، الوقت، الصورة</td>
+          </tr>
+          <tr>
+            <td><strong>alerts</strong></td>
+            <td>التنبيهات والإشعارات</td>
+            <td>نوع التنبيه، المرسل، المستقبل، الحالة، الوقت</td>
+          </tr>
+          <tr>
+            <td><strong>school_zones</strong></td>
+            <td>مناطق المدرسة</td>
+            <td>اسم المنطقة، النوع (فصل/ممر/مدخل)، السعة القصوى</td>
+          </tr>
+          <tr>
+            <td><strong>engagement_snapshots</strong></td>
+            <td>لقطات التفاعل (الوحدة 15)</td>
+            <td>معدل التفاعل، الانتباه، وقت الجلسة، بيانات الفصل</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Security & Privacy -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">١٠</div>
+      <h2>الخصوصية والأمان وحوكمة البيانات</h2>
+    </div>
+    <div class="cards-grid" style="padding-right:10mm; grid-template-columns: 1fr 1fr 1fr">
+      <div class="card">
+        <div class="card-title"><span class="dot"></span>تشفير البيانات</div>
+        <p>جميع البيانات مشفرة أثناء النقل (HTTPS/TLS) وأثناء التخزين.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot"></span>إخفاء الهوية</div>
+        <p>الوحدة 14 تضمن إخفاء هوية الوجه آلياً في التقارير المشتركة.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot"></span>التحكم في الوصول</div>
+        <p>نظام صلاحيات متعدد المستويات (مدير / معلم / ولي أمر).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-logo">Schooly</span>
+    <span>وثيقة إيداع براءة اختراع برمجية – سري للاستخدام الرسمي</span>
+    <span>صفحة 5 من 6</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ PAGE 6 – FILING ═══ -->
+<div class="page">
+  <div class="header-bar">
+    <div class="header-top">
+      <span class="org-label">منصة Schooly – قائمة الإيداع</span>
+      <span class="doc-number" style="direction:ltr">REF: SCHOOLY-2026 / SW-001</span>
+    </div>
+    <div class="header-title">
+      <div class="ar-title" style="font-size:1.5rem">متطلبات الإيداع والوثائق المصاحبة</div>
+      <div class="gold-line"></div>
+      <div class="en-title">Patent Filing Checklist & Supporting Documents</div>
+    </div>
+  </div>
+
+  <!-- Checklist -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">١١</div>
+      <h2>قائمة التحقق من مستندات الإيداع</h2>
+    </div>
+    <div style="padding-right:10mm">
+      <table class="tech-table">
+        <thead>
+          <tr>
+            <th style="width:6%">#</th>
+            <th style="width:55%">المستند / المطلب</th>
+            <th style="width:20%">الحالة</th>
+            <th>ملاحظات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align:center">١</td>
+            <td>عدد (2) نسخة من المصنف على وسيلة تخزين (Flash Memory)</td>
+            <td style="color:#16a34a;font-weight:700">✅ مرفق</td>
+            <td>نسختان على فلاشة تحتوي كامل مجلد المشروع</td>
+          </tr>
+          <tr>
+            <td style="text-align:center">٢</td>
+            <td>طباعة أول وآخر 20 صفحة من كود المصدر (أو 10%)</td>
+            <td style="color:#16a34a;font-weight:700">✅ مرفق</td>
+            <td>مطبوعة من ملفات app/main.py و src/App.tsx</td>
+          </tr>
+          <tr>
+            <td style="text-align:center">٣</td>
+            <td>طباعة شاشات البرنامج الرئيسية</td>
+            <td style="color:#16a34a;font-weight:700">✅ مرفق</td>
+            <td>وصف الشاشات موجود في الصفحة الرابعة من هذه الوثيقة</td>
+          </tr>
+          <tr>
+            <td style="text-align:center">٤</td>
+            <td>وصف البرنامج وكيفية استخدامه ولغة البرمجة ونظم التشغيل</td>
+            <td style="color:#16a34a;font-weight:700">✅ هذه الوثيقة</td>
+            <td>الصفحات 1-5 من هذه الوثيقة تغطي جميع المتطلبات</td>
+          </tr>
+          <tr>
+            <td style="text-align:center">٥</td>
+            <td>العقود الخاصة بتراخيص الاستغلال المالي (إن وُجدت)</td>
+            <td style="color:#d97706;font-weight:700">⏳ عند الطلب</td>
+            <td>البرنامج مملوك للمودِع حصرياً – لا نقل للحقوق</td>
+          </tr>
+          <tr>
+            <td style="text-align:center">٦</td>
+            <td>صورة إثبات شخصية المؤلف (شخص طبيعي)</td>
+            <td style="color:#d97706;font-weight:700">⏳ مطلوب</td>
+            <td>بطاقة الرقم القومي / جواز السفر</td>
+          </tr>
+          <tr>
+            <td style="text-align:center">٧</td>
+            <td>صورة إثبات شخصية مقدم الطلب (المودِع)</td>
+            <td style="color:#d97706;font-weight:700">⏳ مطلوب</td>
+            <td>بطاقة الرقم القومي / جواز السفر</td>
+          </tr>
+          <tr>
+            <td style="text-align:center">٨</td>
+            <td>إحضار مهندس مصمم البرنامج مع لاب توب واللغة والأكواد</td>
+            <td style="color:#16a34a;font-weight:700">✅ جاهز</td>
+            <td>المهندس متاح للحضور في يوم الإيداع مع الكود الكامل</td>
+          </tr>
+          <tr>
+            <td style="text-align:center">٩</td>
+            <td>رسوم الإيداع 1000 جنيه (غير رسوم إصدار الشهادة)</td>
+            <td style="color:#d97706;font-weight:700">⏳ مطلوب</td>
+            <td>يُدفع نقداً أو بحوالة بنكية يوم الإيداع</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Innovation Claims -->
+  <div class="section">
+    <div class="section-title">
+      <div class="section-num">١٢</div>
+      <h2>مطالبات الاختراع – ما يُطالب بحمايته</h2>
+    </div>
+    <div class="section-body">
+      <ol class="styled" style="list-style: none;">
+        <li>منظومة وحدات الذكاء الاصطناعي الخمس عشرة المتكاملة للمراقبة المدرسية في الوقت الفعلي.</li>
+        <li>طريقة تكامل الحضور بالتعرف على الوجه مع بيانات السلامة الأمنية في نظام موحد.</li>
+        <li>آلية توليد التقارير الآلية متعددة المستويات (تشغيلي – تحليلي – إشرافي – وزاري).</li>
+        <li>طبقة حوكمة البيانات العربية مع آلية إخفاء هوية الوجه بشكل آلي وانتقائي.</li>
+        <li>الذكاء البيداغوجي لقياس تفاعل الطلاب داخل الفصول الدراسية من بيانات الفيديو.</li>
+        <li>نظام التنبؤ بكثافة الحشود وتوقع نقاط الاختناق قبل حدوثها.</li>
+        <li>حساب مؤشر سلامة المدرسة (SSI) من خمسة مصادر بيانات مستقلة ومتكاملة.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Signature -->
+  <div class="sig-block">
+    <div class="sig-col">
+      <div class="sig-line"></div>
+      <div class="sig-label">توقيع المودِع / المخترع</div>
+      <div class="sig-label" style="margin-top:1mm">عبدالله إوينا</div>
+    </div>
+    <div class="sig-col">
+      <div class="sig-line"></div>
+      <div class="sig-label">توقيع مهندس النظام</div>
+      <div class="sig-label" style="margin-top:1mm">مصمم البرنامج</div>
+    </div>
+    <div class="sig-col">
+      <div class="sig-line"></div>
+      <div class="sig-label">ختم وتوقيع مكتب براءات الاختراع</div>
+      <div class="sig-label" style="margin-top:1mm">تاريخ الإيداع: ___________</div>
+    </div>
+  </div>
+
+  <!-- Contact Footer -->
+  <div style="margin-top:5mm;padding:3mm 5mm;background:var(--light-bg);border:1px solid var(--border);border-radius:6px;font-size:0.75rem;display:flex;justify-content:space-between">
+    <span>📞 للاستفسار: 02/27921274</span>
+    <span>📱 واتساب: 01211362914</span>
+    <span>📧 abdallah.ewina@gmail.com</span>
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-logo">Schooly</span>
+    <span>وثيقة إيداع براءة اختراع برمجية – سري للاستخدام الرسمي</span>
+    <span>صفحة 6 من 6</span>
+  </div>
+</div>
+
+</body>
+</html>

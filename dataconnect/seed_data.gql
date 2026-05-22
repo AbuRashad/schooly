@@ -1,0 +1,46 @@
+mutation CreateDemoData @transaction @auth(level: USER, insecureReason: "This is a seed data mutation for development purposes.") {
+  user_insertMany(data: [
+    {
+      id: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      displayName: "Alice Smith",
+      email: "alice.smith@example.com",
+      createdAt: "2023-01-01T10:00:00Z",
+      bio: "Passionate learner and instructor."
+    },
+    {
+      id: "f1e2d3c4-b5a6-0987-6543-210fedcba987",
+      displayName: "Bob Johnson",
+      email: "bob.johnson@example.com",
+      createdAt: "2023-01-05T11:30:00Z",
+      bio: "Tech enthusiast and coding mentor."
+    }
+  ])
+  course_insertMany(data: [
+    {
+      id: "1a2b3c4d-5e6f-7890-1234-567890abcdef",
+      instructorId: "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      title: "Introduction to GraphQL",
+      description: "Learn the basics of GraphQL for modern API development.",
+      category: "Programming",
+      price: 49.99,
+      createdAt: "2023-01-10T14:00:00Z",
+      difficultyLevel: "Beginner"
+    },
+    {
+      id: "8a7b6c5d-4e3f-2109-8765-43210fedcba9",
+      instructorId: "f1e2d3c4-b5a6-0987-6543-210fedcba987",
+      title: "Advanced React Hooks",
+      description: "Dive deep into custom React hooks and performance optimization.",
+      category: "Web Development",
+      price: 79.99,
+      createdAt: "2023-01-15T09:00:00Z",
+      difficultyLevel: "Intermediate"
+    }
+  ])
+  enrollment_insert(data: {
+    userId: "f1e2d3c4-b5a6-0987-6543-210fedcba987",
+    courseId: "1a2b3c4d-5e6f-7890-1234-567890abcdef",
+    enrolledAt: "2023-01-12T16:00:00Z",
+    progress: 25
+  })
+}

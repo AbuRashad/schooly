@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Schooly — Dark Academic Theme */
+    --background: 214 89% 8%;        /* #07111f night */
+    --foreground: 215 87% 92%;       /* #dfeafb mist */
+    --card: 214 64% 12%;             /* #0d1b31 panel */
+    --card-foreground: 215 87% 92%;
+    --popover: 214 65% 17%;          /* #0f2747 navy */
+    --popover-foreground: 215 87% 92%;
+    --primary: 214 69% 34%;          /* #1d4f91 cobalt */
+    --primary-foreground: 215 87% 92%;
+    --secondary: 213 61% 58%;        /* #4f8fd8 sky */
+    --secondary-foreground: 214 89% 8%;
+    --muted: 214 65% 17%;
+    --muted-foreground: 213 30% 60%;
+    --accent: 213 61% 45%;
+    --accent-foreground: 215 87% 92%;
+    --destructive: 354 77% 61%;      /* #e84d5b critical */
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 50% 22%;
+    --input: 214 65% 17%;
+    --ring: 213 61% 58%;
+
+    /* Status Colors */
+    --safe: 147 47% 52%;             /* #46c37b */
+    --warning: 38 100% 65%;          /* #ffb84d */
+    --critical: 354 77% 61%;         /* #e84d5b */
+
+    /* Chart */
+    --chart-1: 213 61% 75%;
+    --chart-2: 213 61% 58%;
+    --chart-3: 214 69% 34%;
+    --chart-4: 147 47% 52%;
+    --chart-5: 38 100% 65%;
+
+    /* Sidebar */
+    --sidebar: 214 89% 5%;
+    --sidebar-foreground: 215 87% 92%;
+    --sidebar-primary: 213 61% 58%;
+    --sidebar-primary-foreground: 214 89% 8%;
+    --sidebar-accent: 214 65% 17%;
+    --sidebar-accent-foreground: 215 87% 92%;
+    --sidebar-border: 214 50% 22%;
+    --sidebar-ring: 213 61% 58%;
+
+    /* Typography */
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: ui-serif, Georgia, serif;
+    --font-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+
+    /* Border Radius */
+    --radius: 0.625rem;
+
+    /* Shadows */
+    --shadow-panel: 0 18px 60px rgba(3, 10, 22, 0.36);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: var(--font-sans);
+    background: radial-gradient(ellipse at top left, hsl(214 65% 13%) 0%, hsl(214 89% 8%) 60%);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading) !important;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--background)); }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
+}
+
+@layer utilities {
+  .schooly-panel {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-panel);
+  }
+
+  .schooly-glow {
+    box-shadow: 0 0 20px hsla(213, 61%, 58%, 0.3);
+  }
+
+  .status-safe    { color: hsl(var(--safe)); }
+  .status-warning { color: hsl(var(--warning)); }
+  .status-critical { color: hsl(var(--critical)); }
+
+  .bg-safe     { background-color: hsl(var(--safe) / 0.15); }
+  .bg-warning  { background-color: hsl(var(--warning) / 0.15); }
+  .bg-critical { background-color: hsl(var(--critical) / 0.15); }
+
+  .animate-in { animation-duration: 0.2s; animation-fill-mode: both; }
+  .fade-in    { animation-name: fadeIn; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse-ring {
+    0%   { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+  }
+
+  .animate-pulse-ring { animation: pulse-ring 1.5s ease-out infinite; }
+}
+
+html { scroll-behavior: smooth; }

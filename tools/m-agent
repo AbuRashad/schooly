@@ -1,0 +1,15 @@
+response = requests.post(
+    'https://cloud.blackbox.ai/api/tasks',
+    headers={'Authorization': 'Bearer bb_YOUR_API_KEY'},
+    json={
+        'prompt': 'Add Stripe Payment Integration',
+        'repoUrl': 'https://github.com/user/repo', # SET YOUR REPO
+        'multiLaunch': True,
+        'selectedAgents': [
+            {'agent': 'blackbox', 'model': 'blackboxai/blackbox-pro'},
+            {'agent': 'claude', 'model': 'blackboxai/anthropic/claude-sonnet-4.5'},
+            {'agent': 'gemini', 'model': 'gemini-2.5-pro'}
+        ]
+    }
+)
+data = response.json()
