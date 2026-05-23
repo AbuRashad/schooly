@@ -25,6 +25,10 @@ export default defineConfig({
         target: "http://127.0.0.1:8000",
         changeOrigin: true,
         ws: true,
+        // Silence ECONNREFUSED noise when the backend is not running locally
+        configure: (proxy) => {
+          proxy.on("error", () => { /* backend offline — suppress terminal spam */ });
+        },
       },
     },
     hmr: { overlay: false },
