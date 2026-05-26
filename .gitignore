@@ -74,3 +74,5 @@ pids
 # Import temporary files
 .import-*
 .blackboxcli/
+node_modules_bak
+fresh_nm
