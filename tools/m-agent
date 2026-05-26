@@ -1,0 +1,130 @@
+#!/usr/bin/env node
+
+import path from 'node:path';
+import process from 'node:process';
+import { mkdir, writeFile, access } from 'node:fs/promises';
+
+function printUsage() {
+    console.log(
+        [
+            'Usage:',
+            '  npm run make:agent -- --name "Agent Name" --description "When to use this agent" [--slug agent-file-name] [--force]',
+            '',
+            'Examples:',
+            '  npm run make:agent -- --name "Schooly Backend" --description "Use for FastAPI and Python service work"',
+            '  npm run make:agent -- --name "Schooly QA" --description "Use for testing and bug triage" --slug schooly-qa --force',
+        ].join('\n'),
+    );
+}
+
+function parseArgs(argv) {
+    const args = { force: false };
+
+    for (let i = 0; i < argv.length; i += 1) {
+        const token = argv[i];
+        if (token === '--name') {
+            args.name = argv[i + 1];
+            i += 1;
+        } else if (token === '--description') {
+            args.description = argv[i + 1];
+            i += 1;
+        } else if (token === '--slug') {
+            args.slug = argv[i + 1];
+            i += 1;
+        } else if (token === '--force') {
+            args.force = true;
+        } else if (token === '--help' || token === '-h') {
+            args.help = true;
+        }
+    }
+
+    return args;
+}
+
+function slugify(value) {
+    return value
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+}
+
+function buildTemplate({ name, description }) {
+    return `---
+name: ${name}
+description: "${description.replaceAll('"', '\\"')}"
+---
+
+# ${name}
+
+You are a specialized coding agent for the Schooly codebase.
+
+## Scope
+
+- Stay focused on the domain described in the frontmatter description.
+- Follow existing project patterns in AGENTS.md and README.md.
+
+## Workflow
+
+1. Gather context from relevant files before editing.
+2. Make the smallest safe change that solves the task.
+3. Validate with lint/tests when possible.
+4. Explain tradeoffs and next checks clearly.
+
+## Quality Bar
+
+- Keep backward compatibility unless the task explicitly asks for a breaking change.
+- Add or update tests when behavior changes.
+- Call out risks, assumptions, and follow-ups.
+`;
+}
+
+async function exists(filePath) {
+    try {
+        await access(filePath);
+        return true;
+    } catch {
+        return false;
+    }
+}
+
+async function main() {
+    const args = parseArgs(process.argv.slice(2));
+
+    if (args.help || !args.name || !args.description) {
+        printUsage();
+        process.exit(args.help ? 0 : 1);
+    }
+
+    const slug = args.slug ? slugify(args.slug) : slugify(args.name);
+    if (!slug) {
+        console.error('Could not derive a valid slug from the provided name/slug.');
+        process.exit(1);
+    }
+
+    const outDir = path.resolve(process.cwd(), '.github', 'agents');
+    const outFile = path.join(outDir, `${slug}.agent.md`);
+
+    await mkdir(outDir, { recursive: true });
+
+    if (!args.force && (await exists(outFile))) {
+        console.error(`Agent file already exists: ${outFile}`);
+        console.error('Use --force to overwrite.');
+        process.exit(1);
+    }
+
+    const content = buildTemplate({
+        name: args.name.trim(),
+        description: args.description.trim(),
+    });
+
+    await writeFile(outFile, content, 'utf8');
+    console.log(`Created agent: ${outFile}`);
+}
+
+main().catch((error) => {
+    console.error('Failed to create agent file.');
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exit(1);
+});
